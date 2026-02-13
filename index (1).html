@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Websprout Hub - Empowering youths with practical tech and AI skills for the digital future. Learn Web Development, Cybersecurity, AI, and more in Kaduna, Nigeria.">
+    <meta name="keywords" content="Web Development, AI, Tech Courses, Youth Community, Kaduna, Nigeria, Cybersecurity, Digital Marketing, Freelancing, Data Analytics">
+    <meta name="author" content="Halima Mas'ud">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Websprout Hub | Youth Tech & AI Community">
+    <meta property="og:description" content="Empowering youths with practical tech and AI skills for the digital future">
+    <meta property="og:image" content="./assets/og-image.jpg">
+    <meta property="og:url" content="https://websprouthub.com">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Websprout Hub | Youth Tech & AI Community">
+    <meta name="twitter:description" content="Empowering youths with practical tech and AI skills for the digital future">
+    <meta name="twitter:image" content="./assets/og-image.jpg">
+    
+    <title>Websprout Hub | Youth Tech & AI Community</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #00d4ff;
+            --secondary: #7c3aed;
+            --accent: #f97316;
+            --dark: #0f172a;
+            --light: #f1f5f9;
+        }
+        
+        * {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+        }
+        
+        .logo-font {
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: -0.05em;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(124, 58, 237, 0.1));
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), transparent);
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.85)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><rect fill="%230f172a" width="1000" height="1000"/><g fill="%2300d4ff" opacity="0.05"><circle cx="200" cy="200" r="100"/><circle cx="800" cy="300" r="150"/><circle cx="500" cy="700" r="120"/><circle cx="300" cy="800" r="80"/></g></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-slate-800">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <a href="index.html" class="logo-font text-2xl font-black gradient-text flex items-center gap-2">
+                    <span class="text-3xl">⚡</span> WS Hub
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-slate-300 hover:text-cyan-400 font-medium">Home</a>
+                    <a href="courses.html" class="nav-link text-slate-300 hover:text-cyan-400 font-medium">Courses</a>
+                    <a href="about.html" class="nav-link text-slate-300 hover:text-cyan-400 font-medium">About</a>
+                    <a href="certificate.html" class="nav-link text-slate-300 hover:text-cyan-400 font-medium">Certificate</a>
+                    <a href="register.html" class="btn-primary px-6 py-2 rounded-full text-white font-semibold">Register Now</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-cyan-400">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="text-slate-300 hover:text-cyan-400 font-medium">Home</a>
+                    <a href="courses.html" class="text-slate-300 hover:text-cyan-400 font-medium">Courses</a>
+                    <a href="about.html" class="text-slate-300 hover:text-cyan-400 font-medium">About</a>
+                    <a href="certificate.html" class="text-slate-300 hover:text-cyan-400 font-medium">Certificate</a>
+                    <a href="register.html" class="btn-primary px-6 py-2 rounded-full text-white font-semibold inline-block text-center">Register Now</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center justify-center pt-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="max-w-5xl mx-auto text-center">
+                <!-- Hero Content -->
+                <div class="fade-in-up" style="animation-delay: 0.1s;">
+                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 leading-tight">
+                        <span class="gradient-text">Websprout Hub</span>
+                        <br>
+                        <span class="text-slate-200">Youth Tech & AI Community</span>
+                    </h1>
+                </div>
+                
+                <div class="fade-in-up" style="animation-delay: 0.3s;">
+                    <p class="text-xl sm:text-2xl text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+                        Empowering youths with practical tech and AI skills for the digital future
+                    </p>
+                </div>
+                
+                <div class="fade-in-up flex flex-col sm:flex-row gap-4 justify-center items-center" style="animation-delay: 0.5s;">
+                    <a href="register.html" class="btn-primary px-8 py-4 rounded-full text-white font-bold text-lg inline-flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
+                        </svg>
+                        Register Now
+                    </a>
+                    <a href="#contact" class="bg-slate-800 hover:bg-slate-700 px-8 py-4 rounded-full text-white font-bold text-lg inline-flex items-center gap-2 transition-all">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        Contact Us
+                    </a>
+                </div>
+                
+                <!-- Placeholder for Hero Image -->
+                <div class="mt-16 fade-in-up" style="animation-delay: 0.7s;">
+                    <div class="relative max-w-4xl mx-auto">
+                        <div class="aspect-video bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl border-2 border-cyan-500/30 flex items-center justify-center overflow-hidden">
+                            <div class="text-center p-8">
+                                <svg class="w-24 h-24 mx-auto mb-4 text-cyan-400 opacity-50 float-animation" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                                </svg>
+                                <p class="text-slate-400 text-sm">Hero Image Placeholder<br>Professional coding/tech background</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-slate-900">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="section-title text-4xl sm:text-5xl font-black mb-6 gradient-text inline-block">About Websprout Hub</h2>
+                <p class="text-lg sm:text-xl text-slate-300 leading-relaxed mb-8">
+                    Websprout Hub is a youth-focused digital skills community dedicated to empowering young people with practical, in-demand tech skills. We provide hands-on training in cutting-edge technologies including Web Development, Cybersecurity, AI tools, Data Analytics, and more.
+                </p>
+                <p class="text-lg text-slate-400 leading-relaxed">
+                    Our programs are delivered online across Nigeria and beyond, making quality tech education accessible to all. Every completed course comes with a Certificate of Participation, recognizing your achievement and skill development.
+                </p>
+                <div class="mt-8">
+                    <a href="about.html" class="text-cyan-400 hover:text-cyan-300 font-semibold inline-flex items-center gap-2">
+                        Learn More About Us
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Courses Section -->
+    <section id="courses" class="py-20 bg-slate-950">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-4xl sm:text-5xl font-black mb-6 gradient-text inline-block">Featured Courses</h2>
+                <p class="text-lg text-slate-400 max-w-2xl mx-auto">
+                    Explore our comprehensive range of courses designed to equip you with in-demand skills
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <!-- Course Card 1: Web Development -->
+                <div class="card-hover bg-slate-900 rounded-2xl p-6 border border-slate-800">
+                    <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Web Development</h3>
+                    <p class="text-slate-400 mb-6 leading-relaxed">
+                        Master HTML, CSS, JavaScript, and modern frameworks to build stunning, responsive websites and web applications.
+                    </p>
+                    <a href="register.html" class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-semibold">
+                        Register Now
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Course Card 2: Cyber Security -->
+                <div class="card-hover bg-slate-900 rounded-2xl p-6 border border-slate-800">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Cyber Security</h3>
+                    <p class="text-slate-400 mb-6 leading-relaxed">
+                        Learn to protect systems, networks, and data from digital threats. Understand ethical hacking and security best practices.
+                    </p>
+                    <a href="register.html" class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-semibold">
+                        Register Now
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Course Card 3: Graphic Design -->
+                <div class="card-hover bg-slate-900 rounded-2xl p-6 border border-slate-800">
+                    <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Graphic Design</h3>
+                    <p class="text-slate-400 mb-6 leading-relaxed">
+                        Create stunning visual content using industry-standard tools. Master design principles, typography, and branding.
+                    </p>
+                    <a href="register.html" class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-semibold">
+                        Register Now
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Course Card 4: AI Tools -->
+                <div class="card-hover bg-slate-900 rounded-2xl p-6 border border-slate-800">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">AI Tools</h3>
+                    <p class="text-slate-400 mb-6 leading-relaxed">
+                        Harness the power of artificial intelligence. Learn to use AI tools for productivity, content creation, and automation.
+                    </p>
+                    <a href="register.html" class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-semibold">
+                        Register Now
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Course Card 5: Data Analytics -->
+                <div class="card-hover bg-slate-900 rounded-2xl p-6 border border-slate-800">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Data Analytics</h3>
+                    <p class="text-slate-400 mb-6 leading-relaxed">
+                        Transform raw data into actionable insights. Master data visualization, statistical analysis, and business intelligence.
+                    </p>
+                    <a href="register.html" class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-semibold">
+                        Register Now
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Course Card 6: UI/UX Design -->
+                <div class="card-hover bg-slate-900 rounded-2xl p-6 border border-slate-800">
+                    <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-600 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">UI/UX Design</h3>
+                    <p class="text-slate-400 mb-6 leading-relaxed">
+                        Design exceptional user experiences. Learn user research, wireframing, prototyping, and interface design principles.
+                    </p>
+                    <a href="register.html" class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-semibold">
+                        Register Now
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="courses.html" class="btn-primary px-8 py-4 rounded-full text-white font-bold text-lg inline-flex items-center gap-2">
+                    View All Courses
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-slate-900">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="section-title text-4xl sm:text-5xl font-black mb-6 gradient-text inline-block">Get In Touch</h2>
+                    <p class="text-lg text-slate-400">
+                        Ready to start your tech journey? Reach out to us through any of these channels
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Email -->
+                    <a href="mailto:limscobeauty18@gmail.com" class="bg-slate-800 hover:bg-slate-750 rounded-xl p-6 transition-all border border-slate-700 hover:border-cyan-500">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-cyan-500/20 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-slate-400 text-sm">Email</p>
+                                <p class="text-white font-semibold">limscobeauty18@gmail.com</p>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <!-- Telegram -->
+                    <a href="https://t.me/+3Xu_nkU9FkRkYWE0" target="_blank" rel="noopener noreferrer" class="bg-slate-800 hover:bg-slate-750 rounded-xl p-6 transition-all border border-slate-700 hover:border-cyan-500">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.139-5.062 3.345-.479.329-.913.489-1.302.481-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.14.12.099.154.232.17.326.016.094.036.308.02.474z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-slate-400 text-sm">Telegram Community</p>
+                                <p class="text-white font-semibold">Join Our Community</p>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <!-- GitHub -->
+                    <a href="https://github.com/haleemtech123456789" target="_blank" rel="noopener noreferrer" class="bg-slate-800 hover:bg-slate-750 rounded-xl p-6 transition-all border border-slate-700 hover:border-cyan-500">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.916 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-slate-400 text-sm">GitHub</p>
+                                <p class="text-white font-semibold">haleemtech123456789</p>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <!-- YouTube -->
+                    <a href="https://youtube.com/@misspoet_18" target="_blank" rel="noopener noreferrer" class="bg-slate-800 hover:bg-slate-750 rounded-xl p-6 transition-all border border-slate-700 hover:border-cyan-500">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-red-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-slate-400 text-sm">YouTube</p>
+                                <p class="text-white font-semibold">misspoet_18</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Instagram -->
+                <div class="mt-6">
+                    <a href="https://instagram.com/misspoet_18" target="_blank" rel="noopener noreferrer" class="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-xl p-6 transition-all block">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-white/80 text-sm">Instagram</p>
+                                <p class="text-white font-semibold text-lg">@misspoet_18</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800 py-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="logo-font text-xl font-black gradient-text">
+                    <span class="text-2xl">⚡</span> WS Hub
+                </div>
+                <p class="text-slate-400 text-sm text-center">
+                    © 2026 Websprout Hub. Empowering youth with tech skills.
+                </p>
+                <button id="scroll-top" class="bg-cyan-500 hover:bg-cyan-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Scroll to top button
+        const scrollTopBtn = document.getElementById('scroll-top');
+        
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Show/hide scroll to top button
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.style.opacity = '1';
+            } else {
+                scrollTopBtn.style.opacity = '0.5';
+            }
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
